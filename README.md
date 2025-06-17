@@ -45,14 +45,14 @@ The web app will automatically open in your browser.
 
 *(Add screenshots or a demo GIF here if available.)*
 
-## 🧭 Future Improvements
+## Future Improvements
 
 * Integrate GPT API for dynamic language explanations
 * Implement ML-based predictive insights
 * Add backtesting tools and personalized alerts
 * Connect with broker APIs or financial education platforms
 
-## 📄 License
+## License
 
 This project was developed as part of the FinTech course at Rotterdam School of Management (RSM) and is intended solely for academic and demonstration purposes.
 It does not constitute investment advice.
