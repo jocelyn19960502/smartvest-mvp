@@ -31,9 +31,9 @@ pip install yfinance pandas matplotlib streamlit
 
 2. Run the application:
 
-```bash
+
 streamlit run smartvest_app.py
-```
+
 
 The web app will automatically open in your browser.
 
