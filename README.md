@@ -4,7 +4,7 @@
 
 SmartVest is a web-based investment analysis tool designed to help retail investors interpret technical indicators through clean visualizations and natural-language explanations.
 
-## 💡 Key Features
+## Key Features
 
 - Enter a stock ticker (e.g., AAPL)
 - Display closing price chart with 20-day and 50-day moving averages (MA20 & MA50)
@@ -13,7 +13,7 @@ SmartVest is a web-based investment analysis tool designed to help retail invest
 - Provide natural-language explanations for each indicator
 - Include expandable sections to explain indicator concepts (for better UX)
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - **Language**: Python
 - **Framework**: Streamlit (for GUI)
@@ -21,7 +21,7 @@ SmartVest is a web-based investment analysis tool designed to help retail invest
 - **Data processing**: pandas
 - **Visualization**: matplotlib
 
-## 🚀 How to Run
+## How to Run
 
 1. Install the required packages:
 
@@ -37,7 +37,7 @@ streamlit run smartvest_app.py
 
 The web app will automatically open in your browser.
 
-## 📸 Screenshots
+## Screenshots
 
 * Stock price chart with MA20 & MA50
 * RSI trend graph and insight
@@ -56,7 +56,3 @@ The web app will automatically open in your browser.
 
 This project was developed as part of the FinTech course at Rotterdam School of Management (RSM) and is intended solely for academic and demonstration purposes.
 It does not constitute investment advice.
-
-```
-
-
