@@ -25,7 +25,7 @@ SmartVest is a web-based investment analysis tool designed to help retail invest
 
 1. Install the required packages:
 
-```bash
+
 pip install yfinance pandas matplotlib streamlit
 ````
 
