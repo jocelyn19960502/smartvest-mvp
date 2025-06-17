@@ -1,5 +1,5 @@
 
-````markdown
+
 # SmartVest MVP
 
 SmartVest is a web-based investment analysis tool designed to help retail investors interpret technical indicators through clean visualizations and natural-language explanations.
@@ -27,7 +27,7 @@ SmartVest is a web-based investment analysis tool designed to help retail invest
 
 
 pip install yfinance pandas matplotlib streamlit
-````
+
 
 2. Run the application:
 
