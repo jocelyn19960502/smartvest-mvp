@@ -3,7 +3,7 @@ import yfinance as yf
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# RSI 計算
+# RSI cal
 def calculate_rsi(data, period=14):
     delta = data['Close'].diff()
     gain = delta.where(delta > 0, 0)
@@ -24,7 +24,6 @@ def explain_rsi(rsi_value):
     else:
         return "RSI is neutral, suggesting no strong momentum."
 
-# MA 解釋
 def explain_ma(ma20, ma50):
     if ma20 > ma50:
         return "Short-term trend (MA20) is stronger than the mid-term (MA50) — the stock may be in an uptrend."
@@ -33,7 +32,6 @@ def explain_ma(ma20, ma50):
     else:
         return "Short and mid-term trends are aligned — no clear direction."
 
-# MACD 計算
 def calculate_macd(data):
     ema12 = data['Close'].ewm(span=12, adjust=False).mean()
     ema26 = data['Close'].ewm(span=26, adjust=False).mean()
@@ -49,7 +47,11 @@ def explain_macd(macd_value, signal_value):
     else:
         return "MACD is crossing the signal line — possible trend reversal."
 
-# Streamlit app
+# Sidebar - Premium switch
+st.sidebar.markdown("💼 **Subscription**")
+is_premium = st.sidebar.checkbox("I am a Premium user")
+
+# main interface
 st.title("📈 SmartVest - Investment Assistant")
 ticker = st.text_input("Enter Stock Ticker (e.g., AAPL)", value="AAPL")
 
@@ -58,20 +60,15 @@ if ticker:
     hist = stock.history(period="6mo")
 
     if not hist.empty:
-        # RSI
         hist['RSI'] = calculate_rsi(hist)
         latest_rsi = hist['RSI'].dropna().iloc[-1]
-
-        # MA
         hist['MA20'] = hist['Close'].rolling(window=20).mean()
         hist['MA50'] = hist['Close'].rolling(window=50).mean()
-
-        # MACD
         hist['MACD'], hist['Signal'] = calculate_macd(hist)
         latest_macd = hist['MACD'].dropna().iloc[-1]
         latest_signal = hist['Signal'].dropna().iloc[-1]
 
-        # 價格圖 + MA
+        # price chart + MA
         st.subheader("Price Chart with Moving Averages")
         fig1, ax1 = plt.subplots()
         ax1.plot(hist['Close'], label='Close Price')
@@ -82,9 +79,9 @@ if ticker:
         st.pyplot(fig1)
         st.info(explain_ma(hist['MA20'].dropna().iloc[-1], hist['MA50'].dropna().iloc[-1]))
         with st.expander("ℹ️ What is a Moving Average?"):
-            st.write("Moving Averages help identify the trend of a stock by smoothing price data. MA20 tracks short-term movements, while MA50 reflects mid-term trends. When MA20 crosses above MA50, it may signal a bullish trend.")
+            st.write("Moving Averages help identify the trend of a stock by smoothing price data. MA20 tracks short-term movements, while MA50 reflects mid-term trends.")
 
-        # RSI 區塊
+        # RSI 
         st.subheader("RSI Analysis")
         st.write(f"Latest RSI: {latest_rsi:.2f}")
         st.info(explain_rsi(latest_rsi))
@@ -96,9 +93,35 @@ if ticker:
         ax2.legend()
         st.pyplot(fig2)
         with st.expander("ℹ️ What is RSI?"):
-            st.write("RSI (Relative Strength Index) measures the speed and change of price movements. A value above 70 indicates overbought, below 30 indicates oversold. It's used to assess potential reversal points.")
+            st.write("RSI (Relative Strength Index) measures the speed and change of price movements. A value above 70 indicates overbought, below 30 indicates oversold.")
 
-        # MACD 區塊
+        # Premium 
+        if is_premium:
+            st.subheader("🎯 Custom RSI Alert (Premium)")
+            lower = st.slider("Set lower RSI alert threshold", 10, 50, 30)
+            upper = st.slider("Set upper RSI alert threshold", 50, 90, 70)
+
+            if latest_rsi < lower:
+                st.warning("⚠️ RSI is below your threshold. Possible BUY opportunity.")
+            elif latest_rsi > upper:
+                st.warning("⚠️ RSI is above your threshold. Possible SELL signal.")
+            else:
+                st.success("✅ RSI is within your preferred range.")
+
+            st.subheader("Strategy Backtesting (Premium)")
+            st.info("Backtesting feature is under development and will be available in future premium releases.")
+
+        else:
+            st.subheader("🔒 Premium Features")
+            st.markdown("""
+            Unlock additional features with a Premium subscription:
+            - Custom RSI thresholds
+            - Strategy backtesting
+            - AI-based sentiment analysis
+            """)
+            st.info("Upgrade to Premium to access these features.")
+
+        # MACD 
         st.subheader("MACD Analysis")
         st.write(f"MACD: {latest_macd:.2f}, Signal Line: {latest_signal:.2f}")
         st.info(explain_macd(latest_macd, latest_signal))
@@ -110,7 +133,7 @@ if ticker:
         ax3.legend()
         st.pyplot(fig3)
         with st.expander("ℹ️ What is MACD?"):
-            st.write("MACD (Moving Average Convergence Divergence) shows the relationship between two moving averages. When MACD crosses above the Signal Line, it may indicate a bullish signal, and vice versa.")
+            st.write("MACD (Moving Average Convergence Divergence) shows the relationship between two moving averages. A bullish signal occurs when MACD crosses above the signal line.")
 
     else:
         st.warning("No data found. Please check the ticker symbol.")
