@@ -42,7 +42,7 @@ streamlit run smartvest_app.py
 The web app will automatically open in your browser.
 
 
-3. In the sidebar, check the box "✅ I am a Premium user" to access additional features.
+3. In the sidebar, check the box "I am a Premium user" to access additional features.
 
 ## Screenshots
 
