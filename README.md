@@ -51,9 +51,13 @@ The web app will automatically open in your browser.
 
 
 * RSI trend graph and insight
-* MACD vs Signal Line chart and interpretation
+<img src="https://github.com/user-attachments/assets/f8865e4a-0030-4063-beba-22791c18abce" width="600"/>
 
-*(Add screenshots or a demo GIF here if available.)*
+
+* MACD vs Signal Line chart and interpretation
+<img src="https://github.com/user-attachments/assets/dff808bf-35ae-4b82-86bf-34bf6e0101e6" width="600"/>
+
+
 
 ## Future Improvements
 
