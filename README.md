@@ -2,16 +2,20 @@
 
 # SmartVest MVP
 
-SmartVest is a web-based investment analysis tool designed to help retail investors interpret technical indicators through clean visualizations and natural-language explanations.
+SmartVest is an online investment analysis platform created to assist retail investors in understanding technical indicators via clear visual representations and explanations in natural language.
 
 ## Key Features
 
 - Enter a stock ticker (e.g., AAPL)
-- Display closing price chart with 20-day and 50-day moving averages (MA20 & MA50)
-- Show RSI (Relative Strength Index) with simple explanation
+- Display stock price chart with 20-day and 50-day moving averages (MA20 & MA50)
+- Show RSI (Relative Strength Index) with simple explanations
 - Show MACD (Moving Average Convergence Divergence) with signal line
-- Provide natural-language explanations for each indicator
-- Include expandable sections to explain indicator concepts (for better UX)
+- Natural-language interpretation for each indicator
+- Expandable sections explaining each technical concept (for UX)
+- **[New] Premium Mode (simulated):**
+  - Set custom RSI alert thresholds
+  - Access placeholder for strategy backtesting features
+  - See locked premium features if not subscribed
 
 ## Tech Stack
 
@@ -36,6 +40,9 @@ streamlit run smartvest_app.py
 
 
 The web app will automatically open in your browser.
+
+
+3. In the sidebar, check the box "✅ I am a Premium user" to access additional features.
 
 ## Screenshots
 
