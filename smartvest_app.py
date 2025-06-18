@@ -48,7 +48,7 @@ def explain_macd(macd_value, signal_value):
         return "MACD is crossing the signal line — possible trend reversal."
 
 # Sidebar - Premium switch
-st.sidebar.markdown("💼 **Subscription**")
+st.sidebar.markdown("**Subscription**")
 is_premium = st.sidebar.checkbox("I am a Premium user")
 
 # main interface
