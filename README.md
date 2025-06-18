@@ -47,6 +47,8 @@ The web app will automatically open in your browser.
 ## Screenshots
 
 * Stock price chart with MA20 & MA50
+![image](https://github.com/user-attachments/assets/79e6d9f2-90ce-4f93-b064-07aed4c07681)
+
 * RSI trend graph and insight
 * MACD vs Signal Line chart and interpretation
 
